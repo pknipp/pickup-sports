@@ -1,5 +1,5 @@
 'use strict';
-const faker = require('faker');
+const faker = require('@faker-js/faker');
 const { numberOfUsers } = require('../seederData/users');
 const { sports } = require('../seederData/sports');
 const { favoriteProb } = require('../seederData/favorites');
@@ -13,8 +13,8 @@ for (let userId = 1; userId <= numberOfUsers; userId++) {
     if (Math.random() < favoriteProb) {
       let SkillsLength = sport.Skills?.length || 4;
       let Skill = Math.floor(Math.random() * SkillsLength);
-      let updatedAt = faker.date.past(0.1);
-      let favorite = {userId, sportId: i + 1, Skill, updatedAt, createdAt: faker.date.past(0.1, updatedAt)};
+      let updatedAt = faker.date.past({years: 0.1});
+      let favorite = {userId, sportId: i + 1, Skill, updatedAt, createdAt: faker.date.past({years: 0.1, refDate: updatedAt})};
       favorites.push(favorite);
     }
   })

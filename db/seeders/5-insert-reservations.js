@@ -1,5 +1,5 @@
 'use strict';
-const faker = require('faker');
+const faker = require('@faker-js/faker');
 const { numberOfUsers } = require('../seederData/users');
 const { sports } = require('../seederData/sports');
 const { favorites } = require('./3-insert-favorites');
@@ -18,11 +18,11 @@ events.forEach((event, i) => {
           return {...pojo, [key]: 1 + Math.floor(Math.random() * (2 ** sport.boolTypes[key].length - 1))};
         }, {genders: 1 + Math.floor(Math.random() * (2 ** 4 - 1))});
         reservation.boolVals = JSON.stringify(reservation.boolVals);
-        let updatedAt = faker.date.past(0.1);
+        let updatedAt = faker.date.past({years: 0.1});
         if (Math.random() < reservationProb) {
           reservation['Extra info'] = extraInfos[Math.floor(Math.random() * extraInfos.length)];
         };
-        [reservation.createdAt, reservation.updatedAt] = [faker.date.past(0.1, updatedAt), updatedAt];
+        [reservation.createdAt, reservation.updatedAt] = [faker.date.past({years: 0.1, refDate: updatedAt}), updatedAt];
         reservations.push(reservation);
       }
     }

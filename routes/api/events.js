@@ -1,6 +1,5 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const faker = require('faker');
 const { Op } = require('sequelize');
 const fetch = require('node-fetch');
 

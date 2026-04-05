@@ -3,7 +3,6 @@ import moment from 'moment';
 import BootstrapTable from 'react-bootstrap-table-next';
 
 import Context from '../../context';
-import { time } from 'faker';
 
 const ViewEvent = ({ match }) => {
   const { fetchWithCSRF,

@@ -1,5 +1,5 @@
 'use strict';
-const faker = require('faker');
+const faker = require('@faker-js/faker');
 
 const bcrypt = require('bcryptjs');
 const { people, numberOfUsers } = require('../seederData/users');
@@ -15,7 +15,6 @@ const users = [{
 
 people.slice(0, numberOfUsers - 1).forEach(person => {
   const firstName = person[0];
-  const updatedAt = faker.date.past(1);
   users.push({
     Email: firstName[0].toLowerCase() + 'doe@aol.com',
     Address: person[1],
@@ -29,9 +28,9 @@ users.forEach(user => {
   user.Cell = 10 ** 9 + Math.floor(Math.random() * 9 * 10 ** 9);
   user.Photo = `${user["First name"]}'s photoURL`;
   user.hashedPassword = createPassword();
-  const updatedAt = faker.date.past(1);
+  const updatedAt = faker.date.past({years: 1});
   user.updatedAt = updatedAt;
-  user.createdAt = faker.date.past(1, updatedAt);
+  user.createdAt = faker.date.past({years: 1, refDate: updatedAt});
   // The following line was not an adequate replacement for the previous 2 ones.
   // user = {...user, updatedAt, createdAt: faker.date.past(1, updatedAt)};
 })
