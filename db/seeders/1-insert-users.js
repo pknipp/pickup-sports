@@ -1,5 +1,5 @@
 'use strict';
-const faker = require('@faker-js/faker');
+const { faker } = require('@faker-js/faker');
 
 const bcrypt = require('bcryptjs');
 const { people, numberOfUsers } = require('../seederData/users');

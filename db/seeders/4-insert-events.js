@@ -1,5 +1,5 @@
 'use strict';
-const faker = require('@faker-js/faker');
+const { faker } = require('@faker-js/faker');
 
 const { favorites } = require('./3-insert-favorites');
 const { sports } = require('../seederData/sports');
