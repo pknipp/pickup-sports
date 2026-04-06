@@ -31,7 +31,7 @@ const Home = () => {
             if (response.ok) {
                 console.log("data = ", data);
                 setSportsLength(data.sportsLength);
-                let newAllEvents = data.events;
+                let newAllEvents = data; //data.events;
                 newAllEvents.forEach(event => {
                     let [EventDate, EventTime] = moment(event.dateTime).local().format().split("T");
                     EventTime = EventTime.slice(0, 5);
