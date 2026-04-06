@@ -35,6 +35,7 @@ router.post('', [authenticated], asyncHandler(async (req, res, next) => {
 router.get('', [authenticated], asyncHandler(async(req, res, next) => {
   // try{
   const user = req.user;
+  console.log("user = ", user);
   // array of ids of User's favorite sports
   const mySportIds = (await Favorite.findAll({where: {userId: user.id}})).map(fav => fav.sportId);
   const possibleFavorites = (await Favorite.findAll()).filter(fav => mySportIds.includes(fav.sportId));
