@@ -34,6 +34,15 @@ router.post('', [authenticated], asyncHandler(async (req, res, next) => {
 // used by Home component (AKA ViewEvents)
 router.get('', [authenticated], asyncHandler(async(req, res, next) => {
   // try{
+  try {
+    console.log("Starting query...");
+    const events = await Event.findAll(); 
+    res.json(events);
+  } catch (e) {
+    console.error("DETAILED ERROR:", e.message); // This will show in heroku logs
+    console.error(e.stack);
+    res.status(500).send(e.message);
+  }
   const user = req.user;
   console.log("user = ", user);
   // array of ids of User's favorite sports
