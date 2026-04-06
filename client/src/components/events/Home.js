@@ -29,6 +29,7 @@ const Home = () => {
             const response = await fetch(`/api/events`);
             let data = await response.json();
             if (response.ok) {
+                console.log("data = ", data);
                 setSportsLength(data.sportsLength);
                 let newAllEvents = data.events;
                 newAllEvents.forEach(event => {
