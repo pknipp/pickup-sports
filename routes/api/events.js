@@ -90,7 +90,7 @@ router.get('', [authenticated], asyncHandler(async(req, res, next) => {
     });
     nBundle++;
   }
-  console.log("zeroth travel time is "; events[0].duration);
+  console.log("zeroth travel time is ", events[0].duration);
   res.json({events, sportsLength: mySportIds.length});
   // }catch(e){console.log(e)}
 }));
