@@ -82,6 +82,7 @@ router.get('', [authenticated], asyncHandler(async(req, res, next) => {
   // google restricts each bundle to contain no more than 25 addresses
   const maxFetch = 25;
   let nBundle = 0;
+  console.error("allVenues.length = ", allVenues.length); 
   while (allVenues.length) {
     let venues = allVenues.splice(0, Math.min(maxFetch, allVenues.length));
     const response = await fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${user.Address}&destinations=${venues.join('|')}&key=${mapsApiKey}`);
