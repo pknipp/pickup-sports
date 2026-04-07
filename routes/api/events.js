@@ -54,7 +54,7 @@ router.get('', [authenticated], asyncHandler(async(req, res, next) => {
   }).map(event => event.dataValues);
   // initialize array of Event.Location's
   const allVenues = [];
-  console.log("events.length = ", events.length);
+  console.error("events.length = ", events.length);
   for (let i = 0; i < events.length; i++) {
       let event = events[i];
       allVenues.push(event.Location);
@@ -91,7 +91,7 @@ router.get('', [authenticated], asyncHandler(async(req, res, next) => {
     });
     nBundle++;
   }
-  console.log("zeroth travel time is ", events[0].duration);
+  console.error("zeroth travel time is ", events[0].duration);
   res.json({events, sportsLength: mySportIds.length});
   // }catch(e){console.log(e)}
 }));
