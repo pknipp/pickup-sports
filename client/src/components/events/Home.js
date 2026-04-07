@@ -35,6 +35,7 @@ const Home = () => {
                 newAllEvents.forEach(event => {
                     let [EventDate, EventTime] = moment(event.dateTime).local().format().split("T");
                     EventTime = EventTime.slice(0, 5);
+                    console.log("event.duration = ", event.duration);
                     let minutes = Math.round(event.duration.value / 60);
                     let hours = Math.floor(minutes / 60);
                     hours = (hours < 10 ? "0" : "") + hours;
