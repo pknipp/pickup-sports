@@ -54,6 +54,7 @@ router.get('', [authenticated], asyncHandler(async(req, res, next) => {
   }).map(event => event.dataValues);
   // initialize array of Event.Location's
   const allVenues = [];
+  console.log("events.length = ", events.length);
   for (let i = 0; i < events.length; i++) {
       let event = events[i];
       allVenues.push(event.Location);
